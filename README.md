@@ -1,372 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sajitha | My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sajitha | Front End Developer</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #fff5fb;
-      color: #333;
-    }
+body{
+  background:#fff7fb;
+  color:#333;
+}
 
-    /* Navbar */
-    nav {
-      width: 100%;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      position: fixed;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-    }
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  box-shadow:0 3px 20px rgba(0,0,0,.08);
+  z-index:1000;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #e91e63;
-    }
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#e91e63;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
 
-    nav ul li a:hover {
-      color: #e91e63;
-    }
+nav ul a{
+  text-decoration:none;
+  color:#333;
+  font-weight:bold;
+  transition:.3s;
+}
 
-    /* Home */
-    .home {
-      min-height: 100vh;
-      padding: 130px 8% 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #ffe0ef, #f3e5ff);
-    }
+nav ul a:hover{
+  color:#e91e63;
+}
 
-    .home-content h1 {
-      font-size: 60px;
-      color: #e91e63;
-      margin-bottom: 15px;
-    }
+.menu{
+  display:none;
+  font-size:28px;
+  color:#e91e63;
+  cursor:pointer;
+}
 
-    .home-content h2 {
-      font-size: 30px;
-      color: #555;
-      margin-bottom: 20px;
-    }
+#home{
+  min-height:100vh;
+  padding:120px 8% 60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ffe0ef,#eee2ff);
+}
 
-    .home-content p {
-      font-size: 18px;
-      max-width: 600px;
-      line-height: 1.7;
-      margin: auto;
-      color: #666;
-    }
+.hero{
+  max-width:1100px;
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 30px;
-      background: #e91e63;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.hero h4{
+  color:#e91e63;
+  font-size:20px;
+  margin-bottom:15px;
+}
 
-    .btn:hover {
-      background: #c2185b;
-      transform: translateY(-3px);
-    }
+.hero h1{
+  font-size:60px;
+  margin-bottom:10px;
+}
 
-    /* Common Section */
-    section {
-      padding: 90px 8%;
-    }
+.hero h1 span{
+  color:#e91e63;
+}
 
-    .title {
-      text-align: center;
-      font-size: 38px;
-      color: #e91e63;
-      margin-bottom: 45px;
-    }
+.hero h2{
+  color:#555;
+  font-size:28px;
+  margin-bottom:20px;
+}
 
-    /* About */
-    .about {
-      background: white;
-      text-align: center;
-    }
+.hero p{
+  color:#666;
+  font-size:18px;
+  line-height:1.7;
+  max-width:550px;
+}
 
-    .about p {
-      max-width: 750px;
-      margin: auto;
-      line-height: 1.8;
-      font-size: 18px;
-      color: #666;
-    }
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+}
 
-    /* Skills */
-    .skills-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-    }
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+}
 
-    .skill {
-      background: white;
-      width: 220px;
-      padding: 30px 20px;
-      text-align: center;
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
+.primary{
+  background:#e91e63;
+  color:white;
+}
 
-    .skill:hover {
-      transform: translateY(-10px);
-    }
+.primary:hover{
+  background:#c2185b;
+  transform:translateY(-3px);
+}
 
-    .skill h3 {
-      color: #e91e63;
-      margin-bottom: 10px;
-    }
+.secondary{
+  border:2px solid #e91e63;
+  color:#e91e63;
+}
 
-    .skill p {
-      color: #777;
-    }
+.secondary:hover{
+  background:#e91e63;
+  color:white;
+}
 
-    /* Gallery */
-    .gallery {
-      background: #fff;
-    }
+.profile{
+  width:350px;
+  height:350px;
+  margin:auto;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff80ab,#9c6cff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:100px;
+  box-shadow:0 20px 50px rgba(233,30,99,.25);
+}
 
-    .gallery-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-    }
+section{
+  padding:90px 8%;
+}
 
-    .gallery-box {
-      width: 250px;
-      height: 180px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #ff9ac2, #b388ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
 
-    /* Contact */
-    .contact {
-      text-align: center;
-      background: linear-gradient(135deg, #ffe0ef, #f3e5ff);
-    }
+.title h2{
+  font-size:40px;
+  color:#e91e63;
+  margin-bottom:10px;
+}
 
-    .contact p {
-      font-size: 18px;
-      margin: 12px;
-      color: #555;
-    }
+.title p{
+  color:#777;
+}
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #e91e63;
-      color: white;
-    }
+#about{
+  background:white;
+}
 
-    /* Mobile */
-    @media (max-width: 700px) {
-      nav {
-        padding: 15px 5%;
-      }
+.about{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+}
 
-      .logo {
-        font-size: 23px;
-      }
+.about p{
+  font-size:18px;
+  color:#666;
+  line-height:1.9;
+}
 
-      nav ul {
-        gap: 12px;
-      }
+.skills{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
 
-      nav ul li a {
-        font-size: 13px;
-      }
+.card{
+  background:white;
+  padding:35px 20px;
+  text-align:center;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
 
-      .home-content h1 {
-        font-size: 42px;
-      }
+.card:hover{
+  transform:translateY(-10px);
+}
 
-      .home-content h2 {
-        font-size: 23px;
-      }
+.icon{
+  font-size:45px;
+  margin-bottom:15px;
+}
 
-      .home-content p {
-        font-size: 16px;
-      }
+.card h3{
+  color:#e91e63;
+  margin-bottom:10px;
+}
 
-      section {
-        padding: 70px 5%;
-      }
+.card p{
+  color:#777;
+  line-height:1.5;
+}
 
-      .title {
-        font-size: 30px;
-      }
+#projects{
+  background:white;
+}
 
-      .skill {
-        width: 100%;
-        max-width: 300px;
-      }
+.projects{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
 
-      .gallery-box {
-        width: 100%;
-        max-width: 320px;
-      }
-    }
-  </style>
+.project{
+  background:#fff7fb;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.project:hover{
+  transform:translateY(-8px);
+}
+
+.project-img{
+  height:160px;
+  border-radius:15px;
+  background:linear-gradient(135deg,#ff9ac2,#b388ff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:55px;
+  margin-bottom:20px;
+}
+
+.project h3{
+  color:#e91e63;
+  margin-bottom:10px;
+}
+
+.project p{
+  color:#777;
+  line-height:1.6;
+}
+
+#contact{
+  text-align:center;
+  background:linear-gradient(135deg,#ffe0ef,#eee2ff);
+}
+
+.contact p{
+  margin:12px;
+  font-size:18px;
+  color:#555;
+}
+
+footer{
+  background:#e91e63;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p{
+    margin:auto;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .skills{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .projects{
+    grid-template-columns:1fr;
+  }
+
+  .profile{
+    width:250px;
+    height:250px;
+    font-size:70px;
+  }
+}
+
+@media(max-width:700px){
+
+  nav{
+    padding:15px 20px;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  nav ul{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero h2{
+    font-size:23px;
+  }
+
+  .skills{
+    grid-template-columns:1fr;
+  }
+
+  .buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .btn{
+    width:200px;
+    text-align:center;
+  }
+
+  .title h2{
+    font-size:32px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">Sajitha</div>
+<header>
+<nav>
+  <div class="logo">Sajitha</div>
 
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="menu" onclick="menu()">☰</div>
 
-  <!-- Home -->
-  <section class="home" id="home">
-    <div class="home-content">
-      <h1>Hello, I'm Sajitha 💖</h1>
-      <h2>Welcome to My Website</h2>
-      <p>
-        This is my personal website where you can know more
-        about me, my skills and my interests.
-      </p>
+  <ul id="nav">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</header>
 
-      <a href="#about" class="btn">Explore More</a>
-    </div>
-  </section>
+<section id="home">
+<div class="hero">
 
-  <!-- About -->
-  <section class="about" id="about">
-    <h2 class="title">About Me 🌸</h2>
+<div>
+  <h4>Hello 👋 I'm</h4>
+  <h1>Sajitha <span>❤️</span></h1>
+  <h2>Front End Developer</h2>
 
-    <p>
-      Hi! My name is Sajitha. Welcome to my personal website.
-      I am passionate about learning new things, exploring
-      creative ideas and developing my skills.
-      This website represents my personality and interests.
-    </p>
-  </section>
+  <p>
+    I create beautiful, responsive and user-friendly
+    websites using modern front-end technologies.
+  </p>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2 class="title">My Skills ✨</h2>
+  <div class="buttons">
+    <a href="#projects" class="btn primary">View Projects</a>
+    <a href="#contact" class="btn secondary">Contact Me</a>
+  </div>
+</div>
 
-    <div class="skills-container">
+<div>
+  <div class="profile">👩🏻‍💻</div>
+</div>
 
-      <div class="skill">
-        <h3>HTML</h3>
-        <p>Creating beautiful web pages.</p>
-      </div>
+</div>
+</section>
 
-      <div class="skill">
-        <h3>CSS</h3>
-        <p>Designing attractive websites.</p>
-      </div>
+<section id="about">
+<div class="title">
+  <h2>About Me 🌸</h2>
+  <p>Get to know me</p>
+</div>
 
-      <div class="skill">
-        <h3>JavaScript</h3>
-        <p>Making websites interactive.</p>
-      </div>
+<div class="about">
+<p>
+Hi! My name is Sajitha. I am a passionate Front End Developer
+who loves creating modern and attractive websites.
+I enjoy learning new technologies and improving my skills.
+</p>
+</div>
+</section>
 
-      <div class="skill">
-        <h3>Creative</h3>
-        <p>Creative thinking and new ideas.</p>
-      </div>
+<section id="skills">
+<div class="title">
+  <h2>My Skills ✨</h2>
+  <p>Technologies I work with</p>
+</div>
 
-    </div>
-  </section>
+<div class="skills">
 
-  <!-- Gallery -->
-  <section class="gallery" id="gallery">
-    <h2 class="title">My Gallery 📸</h2>
+<div class="card">
+  <div class="icon">🌐</div>
+  <h3>HTML</h3>
+  <p>Building clean and semantic web pages.</p>
+</div>
 
-    <div class="gallery-container">
+<div class="card">
+  <div class="icon">🎨</div>
+  <h3>CSS</h3>
+  <p>Creating beautiful and responsive designs.</p>
+</div>
 
-      <div class="gallery-box">
-        Sajitha 💕
-      </div>
+<div class="card">
+  <div class="icon">⚡</div>
+  <h3>JavaScript</h3>
+  <p>Adding interactive features to websites.</p>
+</div>
 
-      <div class="gallery-box">
-        My Dreams ✨
-      </div>
+<div class="card">
+  <div class="icon">💡</div>
+  <h3>Creative</h3>
+  <p>Creating unique ideas and experiences.</p>
+</div>
 
-      <div class="gallery-box">
-        My Life 🌸
-      </div>
+</div>
+</section>
 
-    </div>
-  </section>
+<section id="projects">
+<div class="title">
+  <h2>My Projects 💻</h2>
+  <p>Some of my works</p>
+</div>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h2 class="title">Contact Me 📞</h2>
+<div class="projects">
 
-    <p>📧 Email: sajitha@example.com</p>
-    <p>📱 Phone: +91 XXXXX XXXXX</p>
-    <p>📍 Tamil Nadu, India</p>
+<div class="project">
+  <div class="project-img">🛍️</div>
+  <h3>Shopping Website</h3>
+  <p>A modern responsive online shopping website.</p>
+</div>
 
-    <a href="mailto:sajitha@example.com" class="btn">
-      Send Message
-    </a>
-  </section>
+<div class="project">
+  <div class="project-img">🍔</div>
+  <h3>Food Website</h3>
+  <p>An attractive food website with a clean interface.</p>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Sajitha. All Rights Reserved 💖</p>
-  </footer>
+<div class="project">
+  <div class="project-img">👩🏻‍💻</div>
+  <h3>Portfolio Website</h3>
+  <p>My personal portfolio showcasing my skills.</p>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<div class="title">
+  <h2>Contact Me 📞</h2>
+  <p>Let's connect together</p>
+</div>
+
+<div class="contact">
+  <p>📧 sajitha@example.com</p>
+  <p>📱 +91 XXXXX XXXXX</p>
+  <p>📍 Tamil Nadu, India</p>
+</div>
+
+<a href="mailto:sajitha@example.com" class="btn primary">
+Send Message
+</a>
+</section>
+
+<footer>
+<p>© 2026 Sajitha | Front End Developer 💖</p>
+</footer>
+
+<script>
+function menu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+
+document.querySelectorAll("#nav a").forEach(function(link){
+  link.addEventListener("click",function(){
+    document.getElementById("nav").classList.remove("active");
+  });
+});
+</script>
 
 </body>
 </html>
-
